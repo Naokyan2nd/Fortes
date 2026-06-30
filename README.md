@@ -1,3 +1,4 @@
+<img width="2556" height="1179" alt="d6d1092d41a792a48cb3ad078cfcc863" src="https://github.com/user-attachments/assets/d308ad52-04e4-47cf-8249-4d9c62e07b3b" />
 # フォルテス
 
 アイドル × リズム × ターン制RPG。現実の歩行距離と連動し、都市に出現する謎の怪物 **Noise** を討伐して街を解放していく Unity モバイルゲームです。
