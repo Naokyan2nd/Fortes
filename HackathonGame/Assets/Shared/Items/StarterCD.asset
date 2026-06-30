@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f246176e9484ebbad93d5570fbf356, type: 3}
+  m_Name: StarterCD
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemId: starter_cd
+  itemName: Starter CD
+  itemType: 3
+  itemIcon: {fileID: -5885395954965894164, guid: 7f37e0bca296843cd88fda07d70860d8, type: 3}
+  description: 
+  cdBgm: {fileID: 8300000, guid: e23239a60380f40fc831af6a72a357af, type: 3}
+  attackPower: 0
+  defense: 0

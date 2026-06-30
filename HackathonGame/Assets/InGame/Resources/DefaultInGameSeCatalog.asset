@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d2e3f4a5b6478990abcdef12345670, type: 3}
+  m_Name: DefaultInGameSeCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::InGameSeCatalogSO
+  _entries:
+  - _id: QteTap
+    _clip: {fileID: 8300000, guid: 2845e0938d63d3a41ae3645a272067a0, type: 3}
+    _volume: 1
+    _pitch: 1
+  - _id: QteJudgePerfect
+    _clip: {fileID: 0}
+    _volume: 1
+    _pitch: 1
+  - _id: QteJudgeGood
+    _clip: {fileID: 0}
+    _volume: 1
+    _pitch: 1
+  - _id: QteJudgeBad
+    _clip: {fileID: 0}
+    _volume: 1
+    _pitch: 1
+  - _id: UiCommandSelect
+    _clip: {fileID: 8300000, guid: 57988bcd007055147affd1e533cf4d33, type: 3}
+    _volume: 2
+    _pitch: 1
+  - _id: UiCommandConfirm
+    _clip: {fileID: 8300000, guid: 0e9fdd6235743d64aa3d29f520601ad0, type: 3}
+    _volume: 1
+    _pitch: 1
+  - _id: UiTargetSwitch
+    _clip: {fileID: 8300000, guid: 57988bcd007055147affd1e533cf4d33, type: 3}
+    _volume: 2
+    _pitch: 1
+  - _id: UiTargetConfirm
+    _clip: {fileID: 8300000, guid: 0e9fdd6235743d64aa3d29f520601ad0, type: 3}
+    _volume: 1
+    _pitch: 1
+  - _id: CombatPlayerHit
+    _clip: {fileID: 8300000, guid: 0961c66ce593cde4f8a01aeaad5966c5, type: 3}
+    _volume: 0.3
+    _pitch: 1
+  - _id: CombatEnemyDefeat
+    _clip: {fileID: 0}
+    _volume: 1
+    _pitch: 1
+  - _id: CombatPlayerHeal
+    _clip: {fileID: 8300000, guid: e2a99a64ec751cb47b8b8499a31fd96b, type: 3}
+    _volume: 1
+    _pitch: 1
+  - _id: CombatSpGain
+    _clip: {fileID: 0}
+    _volume: 1
+    _pitch: 1
+  - _id: CombatPlayerDamage
+    _clip: {fileID: 8300000, guid: 0961c66ce593cde4f8a01aeaad5966c5, type: 3}
+    _volume: 0.3
+    _pitch: 2
+  - _id: BattleWaveStart
+    _clip: {fileID: 8300000, guid: 8cf68dfe1815c2f43ad2e2d77ee3e44e, type: 3}
+    _volume: 2
+    _pitch: 1
+  - _id: BattleWaveClear
+    _clip: {fileID: 0}
+    _volume: 1
+    _pitch: 1
+  - _id: ResultVictory
+    _clip: {fileID: 8300000, guid: 943ab57fc660025468b93892b190be12, type: 3}
+    _volume: 0.5
+    _pitch: 1.1
+  - _id: ResultDefeat
+    _clip: {fileID: 0}
+    _volume: 1
+    _pitch: 1
+  - _id: QteBgmScratch
+    _clip: {fileID: 8300000, guid: 6df11327494e7a341a3b77d3314d9a78, type: 3}
+    _volume: 1
+    _pitch: 1
+  - _id: TutorialOpeningWarning
+    _clip: {fileID: 8300000, guid: e964d288b1ed7a9478efe6709fec6630, type: 3}
+    _volume: 1
+    _pitch: 1
+  - _id: UiTutorialNext
+    _clip: {fileID: 8300000, guid: 57988bcd007055147affd1e533cf4d33, type: 3}
+    _volume: 2
+    _pitch: 1
+  _clips: []

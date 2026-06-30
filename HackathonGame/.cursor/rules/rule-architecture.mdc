@@ -1,0 +1,43 @@
+---
+description: アーキテクチャ全般、MVP、状態管理、2D空間の分離、およびエディタ指示のルール
+globs: *Model.cs, *View.cs, *Presenter.cs, *Manager.cs, *Data.cs
+---
+# Architecture & Design Rules
+本プロジェクトでは保守性とiOSでのパフォーマンスを考慮し、以下のアーキテクチャルールを守ってください。
+
+## 1. クラスの継承方針 (MonoBehaviourの適切な使い分け)
+- Unityのライフサイクルイベント（`Awake`や`Update`等）やInspectorからの参照（`SerializeField`）が必要なクラス（主にViewやManager等）には、通常通り `MonoBehaviour` を継承させてください。
+- ただし、単なるデータの保持やロジックの計算のみを行うクラスなど、**`MonoBehaviour` を継承させる必要がない場合は、不要な継承を避けてPure C#クラスとして定義**してください。
+
+## 2. 空間設計の厳格な分離 (UI vs 2D Sprite)
+- **ワールド空間 (Sprite) の使用:** プレイヤー、敵、背景（パララックスレイヤー含む）は、`Canvas` 内の `RectTransform` や `Image` で制御することを固く禁じます。必ず通常の `Transform` と `SpriteRenderer` を使用し、2Dワールド空間上に配置してください。
+- **UI空間 (Canvas) の使用:** HP/SPバー（HUD）やコマンドパネル、リザルト画面などの純粋なUI要素にのみ `Canvas`、`RectTransform`、`Image`、`TextMeshProUGUI` を使用してください。
+
+## 3. MVPアーキテクチャ (UI/表示とロジックの分離)
+- UIおよびゲームオブジェクトの表示制御は **MVPパターン** で実装すること。
+- **Model:** ドメインロジックと状態を保持し、変更を `R3.ReactiveProperty` または `R3.Observable` で公開する（必要がなければPure C#とする）。
+- **View (`MonoBehaviour`必須):** 状態を持たず、表示更新と入力検知のみを行う。UI参照やSprite参照は `[SerializeField]` で取得し、テキストには `TMPro.TextMeshProUGUI` を使用すること（`UnityEngine.UI.Text` は禁止）。
+- **Presenter:** Viewの入力を購読しModelを操作、Modelの変化を購読しViewを更新する。依存方向は `Presenter -> Model, View` のみとし、ViewやModelがPresenterを知ってはいけない。
+
+## 4. メモリ管理と非同期処理 (厳守)
+- **R3の寿命管理:** `Subscribe` 時は必ず `AddTo` や `DisposableBag` を使用し、オブジェクト破棄時（または処理の終了時）に確実に購読解除（Dispose）を行うこと。
+- **UniTaskの安全な中断:** 非同期処理(`async UniTask`)には必ず `CancellationToken` を渡し、キャンセル時に処理が安全に止まるようにすること。
+- **DOTweenの非同期待機:** DOTweenの演出（Tween）を非同期フロー内で待機する場合は、必ず `.ToUniTask()` を使用して UniTask に変換し、await すること。その際、必要に応じて Tween に対しても `CancellationToken` を紐付けること。
+
+## 5. ゲーム進行・ステート管理 (Battle Flow)
+- バトルの進行（コマンド選択 → 対象選択 → QTE → 実行 → 敵ターン）は、明確な**ステートマシン（State Pattern または Enum + switch + UniTask）**を用いて実装すること。
+- 各ステートの処理はメソッドまたはクラスとして分割し、一つの巨大な関数（God Method）を作らないこと。
+
+## 6. データと設定の分離 (ScriptableObject)
+- **マジックナンバーの禁止:** 単発の固定値（QTE秒数やダメージ倍率など）はコードに直書きせず、該当クラスの `[SerializeField]` として定義するか、ScriptableObjectから取得してInspectorから調整可能にすること。
+- **ScriptableObjectの活用:** 敵のパラメータや、スキルなどのデータはScriptableObjectとして管理すること。
+
+## 7. 結合度とパフォーマンスの規約
+- **シングルトンの乱用禁止:** `public static Instance` を用いたシングルトンパターンの乱用を禁止します。依存関係の解決はコンストラクタ注入やInspectorからのアサイン等で行うこと。
+- **オブジェクトプーリングの推奨:** QTEエフェクトやUI要素などを頻繁に生成・破棄する場合、`Instantiate` / `Destroy` の直接呼び出しを避け、再利用（Object Pooling）を前提とした設計にすること。
+
+## 8. 人間（開発者）へのエディタ作業指示ルール
+- 実装完了後、人間にUnityエディタ上でのコンポーネントアタッチやHierarchy構築を指示する際、特に敵スロットや背景など構造が複雑なものに関しては、文章のみの指示を禁止します。
+- 必ず以下のような**アスキーアートによるツリー形式**を用いて、階層構造とアタッチすべきスクリプト・コンポーネント、インスペクターでのアサイン関係を視覚的に分かりやすくまとめて提示してください。
+
+*(出力イメージ例)*

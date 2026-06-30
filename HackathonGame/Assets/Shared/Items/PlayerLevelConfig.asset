@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba72bf111dfe44d692dce3bf722da49, type: 3}
+  m_Name: PlayerLevelConfig
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLevelConfig
+  expPerLevel:
+    level1MaxExp: 100
+    level2MaxExp: 1000
+    level3MaxExp: 1000
+    level4MaxExp: 1000
+    level5MaxExp: 1000
+  statsPerLevel:
+    level1Attack: 100
+    level1MaxHp: 1000
+    level2Attack: 120
+    level2MaxHp: 120
+    level3Attack: 18
+    level3MaxHp: 145
+    level4Attack: 22
+    level4MaxHp: 175
+    level5Attack: 26
+    level5MaxHp: 210

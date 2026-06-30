@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: b96bd38d4e55747f283b7c06e40399e7
+  - enabled: 1
+    path: Assets/Scenes/InGameTutorial.unity
+    guid: 7cbc59258c83ddd4d9407fa16d93fc25
+  - enabled: 1
+    path: Assets/Scenes/HomeScene.unity
+    guid: f8f0e89ef9e8f4fafb3a77dc52c16cf6
+  - enabled: 1
+    path: Assets/Scenes/ScanScene.unity
+    guid: 39eddf7cbe49f40d5bf8fc4fa0aca8fd
+  - enabled: 1
+    path: Assets/Scenes/StageScene.unity
+    guid: 72e54de9310f241d18e9e80fae4a9898
+  - enabled: 1
+    path: Assets/Scenes/OutfitScene.unity
+    guid: ff64974f8a56d4073a17eb6ab2205c54
+  - enabled: 1
+    path: Assets/Scenes/CraftScene.unity
+    guid: 6c3e655de80234d90b1fbcdd708f0e76
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: b19224f799d8e6f45a61d6c2d44e9db4
+  - enabled: 1
+    path: Assets/Scenes/ResultScene.unity
+    guid: d87c1f4cd142d47e8a313c61e770535c
+  - enabled: 1
+    path: Assets/Scenes/DistanceDebugScene.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_UseUCBPForAssetBundles: 0

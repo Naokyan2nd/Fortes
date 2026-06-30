@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 055704636f53b7948ad05d1f8e77cc3f, type: 3}
+  m_Name: WaveTransitionVisuals
+  m_EditorClassIdentifier: Assembly-CSharp::WaveTransitionVisualsSO
+  _nextWaveSweepSprite: {fileID: 21300000, guid: ac6838c4905b48147a4bc28170578ae0, type: 3}
+  _battleStartSweepSprite: {fileID: 21300000, guid: 716a8ccd91d66ec48b9b78ada81d036c, type: 3}
+  _nextWaveTextFallback: NEXT WAVE
+  _battleStartTextFallback: BATTLE START
+  _waveMarkSprites:
+  - {fileID: 21300000, guid: b36121822f052ba4e80beda959c9a846, type: 3}
+  - {fileID: 21300000, guid: ee2286f07efa93143b42c96735bf969a, type: 3}
+  - {fileID: 21300000, guid: 4a4e7a3bf803632458b04291e2b8d920, type: 3}
+  _waveMarkTextFormat: WAVE {0:00}

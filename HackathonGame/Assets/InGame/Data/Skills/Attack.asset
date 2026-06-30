@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a3400f7e8c82842986f2dc971bd659, type: 3}
+  m_Name: Attack
+  m_EditorClassIdentifier: Assembly-CSharp::SkillDataSO
+  _skillId: Attack
+  _category: 0
+  _power: 100
+  _healPower: 0
+  _qteVariants:
+  - _qteCombinedClip: {fileID: 8300000, guid: 509be7a72e859454b845a913117ed072, type: 3}
+    _noteScrollDurationSeconds: 1.162
+    _jingleTimelineOffsetSeconds: 0
+    _qteTimings:
+    - _timingInSeconds: 1.162
+    - _timingInSeconds: 1.497
+    - _timingInSeconds: 2.075
+    - _timingInSeconds: 2.419
+    - _timingInSeconds: 2.997
+    - _timingInSeconds: 3.344
+    _legacyVariantJingleClip: {fileID: 0}
+  - _qteCombinedClip: {fileID: 8300000, guid: 130fc9c05dc33c04eb7f437d93a6303c, type: 3}
+    _noteScrollDurationSeconds: 1.162
+    _jingleTimelineOffsetSeconds: 0
+    _qteTimings:
+    - _timingInSeconds: 1.267
+    - _timingInSeconds: 1.498
+    - _timingInSeconds: 2.306
+    - _timingInSeconds: 2.997
+    - _timingInSeconds: 3.229
+    - _timingInSeconds: 3.46
+    _legacyVariantJingleClip: {fileID: 0}
+  _legacyJingleClip: {fileID: 0}
+  _legacyQteCombinedClip: {fileID: 0}
+  _legacyJingleTimelineOffsetSeconds: 0
+  _legacyQteTimings: []
+  _legacyNoteScrollDurationSeconds: 0
+  _attackTrailSettings:
+    _trailPrefab: {fileID: 6942956713703532187, guid: 80abcabaf8280cd4e9c2a5bbe2387b0c, type: 3}
+    _speed: 18
+    _durationMin: 0
+    _durationMax: 0
+    _pathEase: 5
+    _scaleMin: 1
+    _scaleMax: 1
+    _destroyDelay: 0
+    _hitVfxPrefab: {fileID: 6011934746741069402, guid: 2a2a19ba2eb3f8c40bea2321f021deee, type: 3}
+    _hitVfxDestroyDelay: 1.26

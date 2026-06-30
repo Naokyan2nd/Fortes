@@ -1,0 +1,50 @@
+---
+description: UnityとC#の基本的なコーディング規約・制約
+globs: *.cs
+---
+# Role & Global Rules
+あなたはシニアUnityエンジニアです。以下のルールを厳格に守ってC#コードを生成・修正してください。ターゲットプラットフォームはiOS（TestFlightデプロイ）であるため、パフォーマンスとメモリ管理を徹底してください。
+
+## 1. 命名規則
+- クラス / 構造体 / レコード: `PascalCase` (例: CustomerService)
+- メソッド / プロパティ: `PascalCase` (例: GetOrderDetails, IsCompleted)
+- インターフェース: `IPascalCase` (例: IRepository)
+- ローカル変数 / 引数: `camelCase` (例: orderId, totalAmount)
+- プライベートフィールド: `_camelCase` (例: _databaseContext)
+- 定数 (const): `PascalCase` (例: MaxRetryLimit)
+
+## 2. コメント規則
+- **関数ドキュメント (必須):** XMLコメント (`///`) を使用し、以下の要素を含めること。
+  - `<summary>`: 何をする関数か（目的）
+  - `<param>`: 各パラメーターの役割
+  - `<returns>`: 返り値の意味（エラー条件含む）
+- **インラインコメント:**
+  - ブロックごと: 処理のまとまり単位で「何をするか」を明記。
+  - Why / What: コードの直訳（How）ではなく、意図や背景を書く。
+  - 補足説明: 複雑な条件式やロジックには必ず解説を添える。
+
+## 3. クラス設計 (MVP / R3 / UniTask)
+- UI制御は **MVPパターン** で実装すること。
+- 非同期処理は **UniTask** を、リアクティブプログラミングには **R3** を活用すること。
+
+## 4. 使用ライブラリ・名前空間
+- **非同期処理:** `UniTask` (`Cysharp.Threading.Tasks`)
+- **リアクティブ:** `R3`
+- **演出・アニメーション:** `DOTween` (`DG.Tweening`)
+- **標準イベントの例外許可:** 基本的に標準の `event` は禁止（R3に統一）しますが、**敵のタップ選択など（`OnPointerDown` や `IPointerClickHandler` 等）に限り例外として使用を許可**します。EventSystem（Physics2DRaycaster等）を用いた実装を許容します。
+
+## 5. 厳格なコーディング制約（安全対策と拡張性）
+- **Nullチェックの義務化 (必須):** `[SerializeField]` を用いてInspectorからアサインする変数は、必ず `Awake` または `Start` 時にNullチェックを行い、アサイン漏れがある場合は `Debug.LogError` で明確なエラーを出力すること。
+- **RequireComponentの義務化:** `Collider2D`、`Rigidbody2D`、`SpriteRenderer` など、そのスクリプトが動作するために必須となるコンポーネントが存在する場合、クラス定義の先頭に必ず `[RequireComponent(typeof(T))]` を記述すること。
+- **ハードコードの禁止 (マジックナンバー禁止):** 速度、ディレイ時間、アルファ値、オフセット値など「後からインスペクターで調整したくなるであろう値」は、コード内に直接記述することを固く禁じます。必ず `[SerializeField]` を用いて公開変数として定義してください。
+
+## 6. 禁止事項（厳守）
+- **`var`の完全禁止:** 常に明示的な型宣言を行うこと。
+- **標準ライブラリの禁止:** `System.Threading.Tasks` および `Coroutine` の使用は禁止（UniTaskに統一）。`UniRx` および 標準の `event`（※上記4の例外を除く）の使用は禁止（R3に統一）。
+- **重い処理の禁止:** `GameObject.Find` や `FindObjectOfType` などのFind系関数の使用は禁止。コンポーネントの参照は必ず `[SerializeField]` を用いてInspectorから設定すること。
+- **直接編集の禁止:** MCP等のAgent機能を用いて、`.unity` (Scene) や `.prefab` (Prefab) のYAMLファイルを直接編集・書き換えることは絶対に禁止。
+
+## 7. iOSビルドに向けたメモリ・安全性ルール（追加補足）
+- **R3のメモリ管理:** `Subscribe` を行う際は、必ず `AddTo(this)` や `DisposableBag` を使用し、破棄時に確実に購読解除されるようにすること。
+- **UniTaskのキャンセル:** 非同期メソッドには必ず `CancellationToken` を引数として渡し、コンポーネント破棄時(`GetCancellationTokenOnDestroy`)に安全に処理が止まるようにすること。
+- **例外処理:** ロジックエラーは `if` 文によるガード節で対応し、不要な `try-catch` は避ける。ただし、UniTaskのキャンセルに伴う `OperationCanceledException` は適切に捕捉し、正常な中断処理を行うこと。

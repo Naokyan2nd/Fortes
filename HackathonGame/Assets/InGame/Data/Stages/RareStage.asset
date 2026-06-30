@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a8c2e14b7d94a6e9f01c2d8e5b4a71, type: 3}
+  m_Name: RareStage
+  m_EditorClassIdentifier: 
+  _stageId: RareStage
+  _displayName: Rare Stage
+  _waves:
+  - {fileID: 11400000, guid: e5cdfb59130e2e041a552910fffa1e26, type: 2}
+  - {fileID: 11400000, guid: b08f20451c86efe49828d48a752eec2f, type: 2}

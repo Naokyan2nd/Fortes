@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1f3393caad3f14a884c299176f6253, type: 3}
+  m_Name: GreenEnemy
+  m_EditorClassIdentifier: Assembly-CSharp::InGame.EnemyDataSO
+  _enemyId: Green
+  _maxHp: 600
+  _speed: 3
+  _attackPower: 150
+  _sprite: {fileID: 0}
+  _viewPrefab: {fileID: 8490246403943319578, guid: 72ed49d01b820804c90520ee651b12cb, type: 3}

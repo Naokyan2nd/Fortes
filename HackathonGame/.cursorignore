@@ -1,0 +1,18 @@
+# AIのコンテキストから除外するUnityの標準ノイズ
+Library/
+Temp/
+Logs/
+UserSettings/
+MemoryCaptures/
+
+# アセットやバイナリデータ（Agentには読解不能・無意味）
+*.mat
+*.fbx
+*.png
+*.jpg
+*.asset
+*.prefab
+*.anim
+
+# パッケージのロックファイル
+packages-lock.json

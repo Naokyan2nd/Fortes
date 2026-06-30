@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a4b5c6d7e84f901a3b4c5d6e7f8fca, type: 3}
+  m_Name: DefaultQteTaikoSettings
+  m_EditorClassIdentifier: 
+  _judgmentLineX: 0
+  _noteLaneY: 0
+  _postRollSeconds: 0.15
+  _missFadeOutSeconds: 0.15
+  _attackNoteSprite: {fileID: -3755259648188717100, guid: 75f4485a1d1bb7c449df2b7999e8f306, type: 3}
+  _healNoteSprite: {fileID: -2875310985975493125, guid: 00717a2d5b6a3ec4e8e62abbe051c833, type: 3}
+  _attackHitEffectSprite: {fileID: -3755259648188717100, guid: 75f4485a1d1bb7c449df2b7999e8f306, type: 3}
+  _healHitEffectSprite: {fileID: -2875310985975493125, guid: 00717a2d5b6a3ec4e8e62abbe051c833, type: 3}
+  _missStockSprite: {fileID: 0}
+  _enablePerfectStreakPitch: 1
+  _perfectStreakPitchStep: 0.025
+  _perfectStreakPitchMax: 1.3
